@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.30;
+pragma solidity ^0.8.24;
 
 import {RebaseToken} from "../src/RebaseToken.sol";
 import {IRebaseToken} from "../src/interfaces/IRebaseToken.sol";
@@ -131,7 +131,7 @@ contract RebaseTokenTest is Test {
     function testCannotMintAndBrun() public {
         vm.prank(user1);
         vm.expectPartialRevert(IAccessControl.AccessControlUnauthorizedAccount.selector);
-        rebaseToken.mint(user1, 100);
+        rebaseToken.mint(user1, 100, rebaseToken.getInterestRate());
         vm.expectPartialRevert(IAccessControl.AccessControlUnauthorizedAccount.selector);
         rebaseToken.burn(user1, 100);
     }

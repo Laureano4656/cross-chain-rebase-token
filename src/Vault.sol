@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.30;
+pragma solidity ^0.8.24;
 import {IRebaseToken} from "./interfaces/IRebaseToken.sol";
 
 contract Vault {
@@ -21,7 +21,8 @@ contract Vault {
      * @notice Deposits Ether into the vault and mints rebase tokens to the sender.
      */
     function deposit() external payable {
-        i_rebaseTokenAddress.mint(msg.sender, msg.value);
+        uint256 userInterestRate = i_rebaseTokenAddress.getInterestRate();
+        i_rebaseTokenAddress.mint(msg.sender, msg.value, userInterestRate);
         emit Vault__Deposit(msg.sender, msg.value);
     }
 

@@ -4,3 +4,4 @@ forge-std/=lib/forge-std/src/
 halmos-cheatcodes/=lib/openzeppelin-contracts/lib/halmos-cheatcodes/src/
 openzeppelin-contracts/=lib/openzeppelin-contracts/
 @chainlink/contracts/=lib/chainlink-brownie-contracts/contracts
+@chainlink/local/=lib/chainlink-local/
